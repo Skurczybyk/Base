@@ -16,8 +16,10 @@ public class ConfigutationCreator {
     public static void createConfig()
     {
         Configuration config = Configuration.builder()
+                .baseUri("https://github.com/Skurczybyk/Base")
+                .basePath(userDir)
+                .files(FileMetadata.streamDirectory("").filter(e->e.getSource().toString().endsWith(".jar")))
 
-                .files(FileMetadata.streamDirectory("Bootstrap\\target").peek(r->r.classpath(r.getSource().toString().endsWith(".jar"))))
                 .build();
         try(Writer out = Files.newBufferedWriter(Paths.get("config.xml")))
         {
