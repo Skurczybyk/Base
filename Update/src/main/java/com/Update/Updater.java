@@ -6,23 +6,27 @@ import org.update4j.UpdateOptions;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 
 public class Updater {
     public static void checkFrUpdates() throws IOException {
-        URL url = new URL("https://github.com/Skurczybyk/Base");
+        URL url = new URL("https://raw.githubusercontent.com/Skurczybyk/Base/master/config.xml?token=GHSAT0AAAAAACKTOJT3NFQDHRXXIPI5CR7OZLNIYMA");
         Configuration config = null;
-        try(InputStreamReader in = new InputStreamReader(url.openStream()))
+        System.out.println("Pobieram konfiguracje");
+        try(Reader in = new InputStreamReader(url.openStream(), StandardCharsets.UTF_8))
         {
             config = Configuration.read(in);
+            System.out.println("Konfiguracja pobrana. Pobieram pliki");
+            config.update(UpdateOptions.archive(Path.of("newUpdate.zip")));
+            System.out.println("Pliki pobrane. Rozpoczynam aktualizacje");
+            Archive.read("newUpdate.zip").install();
+            System.out.println("Aktualizacja zakończona");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Konfiguracja pobrana. Pobieram pliki");
-        config.update(UpdateOptions.archive(Path.of("newUpdate.zip")));
-        System.out.println("Pliki pobrane. Rozpoczynam aktualizacje");
-        Archive.read("newUpdate.zip").install();
-        System.out.println("Aktualizacja zakończona");
+
     }
 }
