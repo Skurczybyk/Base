@@ -13,7 +13,7 @@ import java.nio.file.Path;
 
 public class Updater {
     public static void checkFrUpdates() throws IOException {
-        URL url = new URL("https://raw.githubusercontent.com/Skurczybyk/Base/master/config.xml?token=GHSAT0AAAAAACKTOJT3NFQDHRXXIPI5CR7OZLNIYMA");
+        URL url = new URL("https://raw.githubusercontent.com/Skurczybyk/Base/master/config.xml?token=GHSAT0AAAAAACKTOJT2R5TGGX6ZOMK7HBA2ZLPPCNA");
         Configuration config = null;
         System.out.println("Pobieram konfiguracje");
         try(Reader in = new InputStreamReader(url.openStream(), StandardCharsets.UTF_8))
