@@ -19,7 +19,6 @@ public class ConfigutationCreator {
                 .baseUri("https://github.com/Skurczybyk/Base")
                 .basePath(userDir)
                 .files(FileMetadata.streamDirectory("").filter(e->e.getSource().toString().endsWith(".jar")))
-                .file(FileMetadata.readFrom("config.xml"))
                 .build();
         try(Writer out = Files.newBufferedWriter(Paths.get("config.xml")))
         {
