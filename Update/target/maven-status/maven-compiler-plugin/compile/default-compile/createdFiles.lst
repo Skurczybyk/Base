@@ -1,4 +1,3 @@
-com\Update\ConfigutationCreator.class
-com\Update\Main.class
-com\Update\Updater.class
+com\Base\Update\Updater.class
 module-info.class
+com\Base\Update\Main.class

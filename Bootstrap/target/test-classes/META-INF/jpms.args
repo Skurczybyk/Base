@@ -1,0 +1,4 @@
+--patch-module
+Bootstrap=_
+--add-reads
+Bootstrap=ALL-UNNAMED

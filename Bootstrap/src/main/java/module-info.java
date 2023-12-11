@@ -1,5 +1,4 @@
 module Bootstrap {
+    exports com.Base.Bootstrap;
     requires Update;
-    requires JFX;
-    requires java.desktop;
 }

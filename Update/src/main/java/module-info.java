@@ -1,4 +1,4 @@
 module Update {
-    exports com.Update;
+    exports com.Base.Update;
     requires org.update4j;
 }

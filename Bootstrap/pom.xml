@@ -9,20 +9,17 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
+    <groupId>com.Base.Bootstrap</groupId>
     <artifactId>Bootstrap</artifactId>
-
+    <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>com.Update</groupId>
+            <groupId>com.Base.Update</groupId>
             <artifactId>Update</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>com.JFX</groupId>
-            <artifactId>JFX</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
     </dependencies>
+
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
