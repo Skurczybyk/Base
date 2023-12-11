@@ -1,6 +1,7 @@
 HELP.md
-
+Bootstrap/target/*.jar.original
 JFX/target/*.jar.original
+Update/target/*.jar.original
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
