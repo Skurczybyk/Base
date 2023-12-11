@@ -1,4 +1,0 @@
---patch-module
-JFX=_
---add-reads
-JFX=ALL-UNNAMED
