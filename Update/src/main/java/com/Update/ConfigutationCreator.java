@@ -16,7 +16,7 @@ public class ConfigutationCreator {
     public static void createConfig()
     {
         Configuration config = Configuration.builder()
-                .baseUri("https://github.com/Skurczybyk/Base")
+                .baseUri("https://github.com/Skurczybyk/Base/tree/master")
                 .basePath(userDir)
                 .files(FileMetadata.streamDirectory("").filter(e->e.getSource().toString().endsWith(".jar")))
                 .build();

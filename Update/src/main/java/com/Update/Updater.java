@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class Updater {
     public static void checkFrUpdates() throws IOException {
-        URL url = new URL("https://raw.githubusercontent.com/Skurczybyk/Base/master/config.xml?token=GHSAT0AAAAAACKTOJT25WPBNZLQ6NKBNG72ZLPPY2Q");
+        URL url = new URL("https://raw.githubusercontent.com/Skurczybyk/Base/master/config.xml");
         Configuration config = null;
         System.out.println("Pobieram konfiguracje");
         try(Reader in = new InputStreamReader(url.openStream(), StandardCharsets.UTF_8))
@@ -32,18 +32,10 @@ public class Updater {
 
     }
     public static void downloadTest() throws Throwable {
-        String link = "https://github.com/Skurczybyk/Base/blob/master/config.xml?raw=true";
+        String link = "https://github.com/Skurczybyk/Base/blob/master/config.xml";
         String fileName = "configuration.xml";
         URL url = new URL(link);
         HttpURLConnection http = (HttpURLConnection) url.openConnection();
-        Map<String,List<String>> header = http.getHeaderFields();
-        while(isRedirected(header))
-        {
-            link = header.get("Location").get(0);
-            url = new URL(link);
-            http = (HttpURLConnection) url.openConnection();
-            header = http.getHeaderFields();
-        }
         InputStream in = http.getInputStream();
         byte[] buffer = new byte[4096];
         int n = -1;
@@ -54,15 +46,5 @@ public class Updater {
         }
         out.close();
     }
-    private static boolean isRedirected(Map<String, List<String>> header)
-    {
-        for (String h:header.get( null ))
-        {
-        if (h.contains( " 301 ")
-        ||  h.contains(" 302 "))
-        {
-            return true;
-        }}
-        return false;
-    }
+
 }
