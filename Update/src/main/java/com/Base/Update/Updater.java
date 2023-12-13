@@ -5,12 +5,11 @@ import org.update4j.Configuration;
 import org.update4j.FileMetadata;
 import org.update4j.UpdateOptions;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.Writer;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -40,8 +39,15 @@ public class Updater {
         Reader in = new InputStreamReader(configURL.openStream(), StandardCharsets.UTF_8);
         Configuration config = null;
         config = Configuration.read(in);
+        System.out.println(config.toString());
         Path zip = Paths.get("up.zip");
         config.update(UpdateOptions.archive(zip));
         Archive.read(zip).install();
+    }
+    public static void testDownload() throws IOException {
+        URL url = new URL("https://github.com/Skurczybyk/Base/blob/master/Bootstrap/target/Bootstrap-0.0.1-SNAPSHOT.jar");
+        ReadableByteChannel chanell = Channels.newChannel(url.openStream());
+        FileOutputStream stream = new FileOutputStream("bootstrap.jar");
+        stream.getChannel().transferFrom(chanell,0, Long.MAX_VALUE);
     }
 }

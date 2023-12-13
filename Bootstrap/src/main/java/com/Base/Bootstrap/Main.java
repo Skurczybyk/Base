@@ -13,5 +13,10 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }*/
+/*        try {
+            Updater.testDownload();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }*/
     }
 }
