@@ -23,7 +23,7 @@ public class Updater {
         Configuration config = Configuration.builder()
                 .baseUri("https://raw.githubusercontent.com/Skurczybyk/Base/master")
                 .basePath(userDir)
-                .files(FileMetadata.streamDirectory("").filter(f -> f.modulepath().getSource().getFileName().toString().endsWith(".jar")))
+                .files(FileMetadata.streamDirectory("").filter(f -> f.ignoreBootConflict().getSource().getFileName().toString().endsWith(".jar")))
                 .build();
         System.out.println(config.toString());
         try ( Writer out = Files.newBufferedWriter(Paths.get("config.xml"))){
