@@ -21,7 +21,7 @@ public class Updater {
         String userDir = System.getProperty("user.dir");
         System.out.println("To jest updater");
         Configuration config = Configuration.builder()
-                .baseUri("https://github.com/Skurczybyk/Base/tree/master")
+                .baseUri("https://raw.githubusercontent.com/Skurczybyk/Base/master")
                 .basePath(userDir)
                 .files(FileMetadata.streamDirectory("").filter(f -> f.getSource().getFileName().toString().endsWith(".jar")))
                 .build();
