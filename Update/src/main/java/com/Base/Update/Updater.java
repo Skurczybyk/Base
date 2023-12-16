@@ -23,8 +23,8 @@ public class Updater {
         Configuration config = Configuration.builder()
                 .baseUri("https://raw.githubusercontent.com/Skurczybyk/Base/master")
                 .basePath(userDir)
-                .file(FileMetadata.readFrom("Bootstrap/target/Bootstrap-0.0.1-SNAPSHOT.jar").uri("https://raw.githubusercontent.com/Skurczybyk/Base/master/Bootstrap/target/Bootstrap-0.0.1-SNAPSHOT.jar"))
-                .file(FileMetadata.readFrom("Update/target/Update-0.0.1-SNAPSHOT.jar").uri("https://raw.githubusercontent.com/Skurczybyk/Base/master/Update/target/Update-0.0.1-SNAPSHOT.jar"))
+                .file(FileMetadata.readFrom("Bootstrap/target/Bootstrap-0.0.1-SNAPSHOT.jar").ignoreBootConflict().uri("https://raw.githubusercontent.com/Skurczybyk/Base/master/Bootstrap/target/Bootstrap-0.0.1-SNAPSHOT.jar"))
+                .file(FileMetadata.readFrom("Update/target/Update-0.0.1-SNAPSHOT.jar").ignoreBootConflict().uri("https://raw.githubusercontent.com/Skurczybyk/Base/master/Update/target/Update-0.0.1-SNAPSHOT.jar"))
                 .build();
         System.out.println(config.toString());
         try ( Writer out = Files.newBufferedWriter(Paths.get("config.xml"))){
