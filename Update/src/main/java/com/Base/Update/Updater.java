@@ -23,7 +23,8 @@ public class Updater {
         Configuration config = Configuration.builder()
                 .baseUri("https://raw.githubusercontent.com/Skurczybyk/Base/master")
                 .basePath(userDir)
-                .files(FileMetadata.streamDirectory("").filter(f -> f.ignoreBootConflict().getSource().getFileName().toString().endsWith(".jar")))
+                .file(FileMetadata.readFrom("Bootstrap/target/Bootstrap-0.0.1-SNAPSHOT.jar").uri("https://raw.githubusercontent.com/Skurczybyk/Base/master/Bootstrap/target"))
+                .file(FileMetadata.readFrom("Update/target/Update-0.0.1-SNAPSHOT.jar").uri("https://raw.githubusercontent.com/Skurczybyk/Base/master/Update/target"))
                 .build();
         System.out.println(config.toString());
         try ( Writer out = Files.newBufferedWriter(Paths.get("config.xml"))){
@@ -45,9 +46,9 @@ public class Updater {
         Archive.read(zip).install();
     }
     public static void testDownload() throws IOException {
-        URL url = new URL("https://github.com/Skurczybyk/Base/blob/master/Bootstrap/target/Bootstrap-0.0.1-SNAPSHOT.jar");
+        URL url = new URL("https://raw.githubusercontent.com/Skurczybyk/Base/master/Update/target/Update-0.0.1-SNAPSHOT.jar");
         ReadableByteChannel chanell = Channels.newChannel(url.openStream());
-        FileOutputStream stream = new FileOutputStream("bootstrap.jar");
+        FileOutputStream stream = new FileOutputStream("Updater.jar");
         stream.getChannel().transferFrom(chanell,0, Long.MAX_VALUE);
     }
 }
