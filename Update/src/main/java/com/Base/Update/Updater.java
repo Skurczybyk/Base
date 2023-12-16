@@ -6,7 +6,6 @@ import org.update4j.FileMetadata;
 import org.update4j.UpdateOptions;
 
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
@@ -23,8 +22,8 @@ public class Updater {
         Configuration config = Configuration.builder()
                 .baseUri("https://raw.githubusercontent.com/Skurczybyk/Base/master")
                 .basePath(userDir)
-                .file(FileMetadata.readFrom("Bootstrap/target/Bootstrap-0.0.1-SNAPSHOT.jar").ignoreBootConflict().uri("https://raw.githubusercontent.com/Skurczybyk/Base/master/Bootstrap/target/Bootstrap-0.0.1-SNAPSHOT.jar"))
-                .file(FileMetadata.readFrom("Update/target/Update-0.0.1-SNAPSHOT.jar").ignoreBootConflict().uri("https://raw.githubusercontent.com/Skurczybyk/Base/master/Update/target/Update-0.0.1-SNAPSHOT.jar"))
+                .file(FileMetadata.readFrom("Bootstrap/target/Bootstrap-0.0.1-SNAPSHOT.jar").ignoreBootConflict())
+                .file(FileMetadata.readFrom("Update/target/Update-0.0.1-SNAPSHOT.jar").ignoreBootConflict())
                 .build();
         System.out.println(config.toString());
         try ( Writer out = Files.newBufferedWriter(Paths.get("config.xml"))){
