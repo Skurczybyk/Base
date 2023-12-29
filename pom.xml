@@ -17,7 +17,8 @@
 	<modules>
 		<module>Bootstrap</module>
 		<module>Update</module>
-	</modules>
+        <module>TheApp</module>
+    </modules>
 	<properties>
 		<java.version>21</java.version>
 	</properties>

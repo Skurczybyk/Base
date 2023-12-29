@@ -24,6 +24,7 @@ public class Updater {
                 .basePath(userDir)
                 .file(FileMetadata.readFrom("Bootstrap/target/Bootstrap-0.0.1-SNAPSHOT.jar").ignoreBootConflict())
                 .file(FileMetadata.readFrom("Update/target/Update-0.0.1-SNAPSHOT.jar").ignoreBootConflict())
+                .file(FileMetadata.readFrom("TheApp/target/TheApp-0.0.1-SNAPSHOT.jar"))
                 .build();
         System.out.println(config.toString());
         try ( Writer out = Files.newBufferedWriter(Paths.get("config.xml"))){
