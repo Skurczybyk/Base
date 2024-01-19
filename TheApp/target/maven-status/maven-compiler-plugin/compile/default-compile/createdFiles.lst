@@ -1,2 +1,5 @@
+com\Base\App\Controllers\MainSceneController.class
+com\Base\App\JFXStarter.class
 module-info.class
 com\Base\App\Main.class
+com\Base\App\Starter.class
