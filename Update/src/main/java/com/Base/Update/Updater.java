@@ -25,8 +25,8 @@ public class Updater {
                 .baseUri("https://raw.githubusercontent.com/Skurczybyk/Base/master")
                 .basePath(pathDir)
                 .file(FileMetadata.readFrom("Bootstrap/target/Bootstrap-0.0.1-SNAPSHOT-jar-with-dependencies.jar").path("Bootstrap\\Bootstrap\\0.0.1-SNAPSHOT\\Bootstrap-0.0.1-SNAPSHOT-jar-with-dependencies.jar").ignoreBootConflict())
-                .file(FileMetadata.readFrom("Update/target/Update-0.0.1-SNAPSHOT-jar-with-dependencies.jar").path("Update/Update/0.0.1-SNAPSHOT/Update-0.0.1-SNAPSHOT-jar-with-dependencies.jar").ignoreBootConflict())
-                .file(FileMetadata.readFrom("TheApp/target/TheApp-0.0.1-SNAPSHOT-jar-with-dependencies.jar").path("TheApp/TheApp/0.0.1-SNAPSHOT/TheApp-0.0.1-SNAPSHOT-jar-with-dependencies.jar"))
+                .file(FileMetadata.readFrom("Update/target/Update-0.0.1-SNAPSHOT-jar-with-dependencies.jar").path("Update\\Update\\0.0.1-SNAPSHOT\\Update-0.0.1-SNAPSHOT-jar-with-dependencies.jar").ignoreBootConflict())
+                .file(FileMetadata.readFrom("TheApp/target/TheApp-0.0.1-SNAPSHOT-jar-with-dependencies.jar").path("TheApp\\TheApp\\0.0.1-SNAPSHOT\\TheApp-0.0.1-SNAPSHOT-jar-with-dependencies.jar"))
                 .build();
         System.out.println(config.toString());
         try ( Writer out = Files.newBufferedWriter(Paths.get("config.xml"))){
