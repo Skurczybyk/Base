@@ -23,10 +23,9 @@ public class Updater {
         System.out.println("To jest updater");
         Configuration config = Configuration.builder()
                 .baseUri("https://raw.githubusercontent.com/Skurczybyk/Base/master")
-                .basePath(pathDir)
-                .file(FileMetadata.readFrom("Bootstrap/target/Bootstrap-0.0.1-SNAPSHOT-jar-with-dependencies.jar").uri("https://raw.githubusercontent.com/Skurczybyk/Base/master/Bootstrap/target/Bootstrap-0.0.1-SNAPSHOT-jar-with-dependencies.jar").path(pathDir + "Bootstrap\\Bootstrap\\0.0.1-SNAPSHOT\\Bootstrap-0.0.1-SNAPSHOT-jar-with-dependencies.jar").ignoreBootConflict(true))
-                .file(FileMetadata.readFrom("Update/target/Update-0.0.1-SNAPSHOT-jar-with-dependencies.jar").uri("https://raw.githubusercontent.com/Skurczybyk/Base/master/Update/target/Update-0.0.1-SNAPSHOT-jar-with-dependencies.jar").path(pathDir + "Update\\Update\\0.0.1-SNAPSHOT\\Update-0.0.1-SNAPSHOT-jar-with-dependencies.jar").ignoreBootConflict(true))
-                .file(FileMetadata.readFrom("TheApp/target/TheApp-0.0.1-SNAPSHOT-jar-with-dependencies.jar").uri("https://raw.githubusercontent.com/Skurczybyk/Base/master/TheApp/target/TheApp-0.0.1-SNAPSHOT-jar-with-dependencies.jar").path(pathDir + "App\\TheApp\\0.0.1-SNAPSHOT\\TheApp-0.0.1-SNAPSHOT-jar-with-dependencies.jar").ignoreBootConflict(true))
+                .basePath(userDir)
+                .file(FileMetadata.readFrom("Update/target/Update-0.0.1-SNAPSHOT-jar-with-dependencies.jar").uri("https://raw.githubusercontent.com/Skurczybyk/Base/master/Update/target/Update-0.0.1-SNAPSHOT-jar-with-dependencies.jar").path(userDir + "Update\\Update\\0.0.1-SNAPSHOT\\Update-0.0.1-SNAPSHOT-jar-with-dependencies.jar").ignoreBootConflict(true))
+                .file(FileMetadata.readFrom("TheApp/target/TheApp-0.0.1-SNAPSHOT-jar-with-dependencies.jar").uri("https://raw.githubusercontent.com/Skurczybyk/Base/master/TheApp/target/TheApp-0.0.1-SNAPSHOT-jar-with-dependencies.jar").path(userDir + "App\\TheApp\\0.0.1-SNAPSHOT\\TheApp-0.0.1-SNAPSHOT-jar-with-dependencies.jar").ignoreBootConflict(true))
                 .build();
         System.out.println(config.toString());
         try ( Writer out = Files.newBufferedWriter(Paths.get("config.xml"))){
