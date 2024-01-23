@@ -8,12 +8,12 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world! Main");
-        Updater.updatePrint();
-/*        try {
+        //Updater.updatePrint();
+        try {
             Updater.makeUpdate();
         } catch (IOException e) {
             System.out.println("Aplikacja aktualna");
-        }*/
+        }
         Starter starter = new Starter();
                 starter.start();
 /*        try {
