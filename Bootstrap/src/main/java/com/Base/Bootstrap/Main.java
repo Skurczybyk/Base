@@ -9,11 +9,13 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world! Main");
         Updater.updatePrint();
-        /*try {
+/*
+        try {
             Updater.makeUpdate();
         } catch (IOException e) {
-            System.out.println("Aplikacja aktualna");
+            throw new RuntimeException(e);
         }*/
+
         Starter starter = new Starter();
                 starter.start();
 /*        try {
